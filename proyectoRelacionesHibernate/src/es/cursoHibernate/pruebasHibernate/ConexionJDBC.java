@@ -7,7 +7,7 @@ public class ConexionJDBC {
 
 	public static void main(String[] args) {
 
-		final String JDBC_URL = "jdbc:mysql://localhost:3307/curso_hibernate?useSSL=false";
+		final String JDBC_URL = "jdbc:mysql://localhost:3307/relacionesHibernate?useSSL=false";
 		final String USER = "root";
 		final String PASSWORD = "password";;
 		

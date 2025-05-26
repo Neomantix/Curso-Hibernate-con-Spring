@@ -14,6 +14,8 @@
 [Video 52: Update & Delete con HQL](https://www.youtube.com/watch?v=ht_BCAbAqn8)
 
 [Video 53: Relaciones entre tablas I](https://www.youtube.com/watch?v=JDhbvRKXVHE)
+
+[Video 54: Relaciones entre tablas II](https://www.youtube.com/watch?v=Fbsq1poG1Z8)
 	
 # Fuentes de información:
 [Página oficial de Hibernate](https://hibernate.org/)

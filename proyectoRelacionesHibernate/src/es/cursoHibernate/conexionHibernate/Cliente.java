@@ -3,33 +3,45 @@ package es.cursoHibernate.conexionHibernate;
 import javax.persistence.*;
 
 /* Anotaciones:
- * 	@Entity: Transforma la clase en una entidad para que hibernate sepa que esta clase va a representar una tabla de la base de datos
- *  @Table: Se le indica a Hibernate la tabla a la que se va a mapear esta clase espeficicando el nombre de la tabla en la base de datos
-*/
+ *  @Entity: Indica que la clase es una entidad y será mapeada a una tabla de la base de datos por Hibernate.
+ *  @Table: Especifica el nombre de la tabla en la base de datos a la que se mapeará la entidad.
+ */
 @Entity
-@Table(name="cliente")
+@Table(name = "cliente")
 public class Cliente {
 
-	/*
-	 * @Id: Se le indica a Hibernate que este atributo será la clave primaria de la tabla
-	 * @GeneratedValu: Le indicamos a Hibernate la estrategia a seguir para la asignación del valor de la clave primaria. En este caso le decimos que es una campo autoincremental.
-	 * 					De este modo Hibernate, una vez insertado un registro en la base de datos con save/persist, obtendrá el valor del id que la base de datos asignó 
-	 * 					de forma automática a este campo, y le dará este mismo valor al atributo id del objeto en Java.
-	 * @Column: Mapea cada propiedad de la clase con un campo de la tabla indicada en la anotación Table. Los nombres entre comillas deben 
-	 * 			coincidir exactamente con los nombres de los campos de la base de datos 
-	 */
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="Id")
-	private int id;
-	@Column(name="Nombre")
-	private String nombre;
-	@Column(name="Apellidos")
-	private String apellidos;
-	@Column(name="Direccion")
-	private String direccion;
-	
-	
+    /*
+     * @Id: Marca el atributo como la clave primaria de la entidad.
+     * @GeneratedValue: Define la estrategia de generación automática del valor de la clave primaria. 
+     *                  En este caso, IDENTITY indica que la base de datos genera un valor autoincremental.
+     *                  Hibernate recupera ese valor tras el insert y lo asigna al atributo id del objeto Java.
+     * @Column: Mapea el atributo con una columna de la tabla. El nombre debe coincidir con el de la base de datos.
+     * @OneToOne: Define una relación uno a uno con otra entidad.
+     * @JoinColumn: Especifica la columna de unión para la relación; en este caso, el campo 'id'.
+     */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private int id;
+
+    @Column(name = "nombre")
+    private String nombre;
+
+    @Column(name = "apellidos")
+    private String apellidos;
+
+    @Column(name = "direccion")
+    private String direccion;
+
+    /*
+     * Relación uno a uno con la entidad DetallesCliente.
+     * CascadeType.ALL indica que las operaciones realizadas sobre Cliente se propagarán a DetallesCliente.
+     * La columna de unión es 'id', que actúa como clave foránea.
+     */
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id")
+    private DetallesCliente detallesCliente;
+
 	
 	/*
 	 * Constructor vacio
