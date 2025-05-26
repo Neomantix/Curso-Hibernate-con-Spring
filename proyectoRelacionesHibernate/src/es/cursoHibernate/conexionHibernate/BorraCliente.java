@@ -4,8 +4,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class InsertaCliente {
-
+public class BorraCliente {
+	
 	public static void main(String[] args) {
 
 		/*
@@ -40,18 +40,24 @@ public class InsertaCliente {
 
 			// Comenzamos la transacción
 			miSesion.beginTransaction();
+			final int ID_A_ELIMINAR = 4; 
+			
+			// Instanciamos un objeto de clase Cliente recuperando los datos del cliente que queremos borrar de la base de datos por medio de su id
+			Cliente cliente1 = miSesion.get(Cliente.class, ID_A_ELIMINAR);
 
-			// Instanciamos un objeto de clase Cliente que será insertado en la base de datos
-			Cliente cliente1 = new Cliente("Sandra", "Delgado", "Goya");
-			
-			// Instanciamos un objeto de la clase DetallesClientes
-			DetallesCliente detallesCliente1 = new DetallesCliente("www.sandra.com", "693684264", "Primer cliente");
-			
-			// Asociar los objetos
-			cliente1.setDetallesCliente(detallesCliente1);
-			
-			// Guardamos el registro en la base de datos. Se guardará la información en las dos tablas relacionadas
-			miSesion.persist(cliente1);
+			// Si el cliente con esa id no existe, en cliente1 se almacenará null
+			if (cliente1 != null) {
+				
+				// Eliminamos el registro en la base de datos. Se borrará la información en cascada de las dos tablas relacionadas
+				miSesion.delete(cliente1);
+				
+				System.out.println("Registro eliminado correctamente: " + cliente1);
+				
+			} else {
+				
+				System.out.println("No se ha podido encontrar al cliente con id: " + ID_A_ELIMINAR);
+				
+			}
 			
 			// Confirmamos la transacción con .commit()
 			miSesion.getTransaction().commit();
@@ -64,5 +70,5 @@ public class InsertaCliente {
 		}
 		
 	}
-
+	
 }

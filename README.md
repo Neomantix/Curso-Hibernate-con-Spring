@@ -17,7 +17,9 @@
 
 [Video 54: Relaciones entre tablas II](https://www.youtube.com/watch?v=Fbsq1poG1Z8)
 
-[Video 55: Relaciones entre tablas III(https://www.youtube.com/watch?v=OKfXRhKNLDk)
+[Video 55: Relaciones entre tablas III](https://www.youtube.com/watch?v=OKfXRhKNLDk)
+
+[Video 56: Relaciones entre tablas IV](https://www.youtube.com/watch?v=xXkxA2k10cY)
 	
 # Fuentes de información:
 [Página oficial de Hibernate](https://hibernate.org/)

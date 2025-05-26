@@ -82,4 +82,10 @@ public class DetallesCliente {
 		this.comentarios = comentarios;
 	}
 
+	@Override
+	public String toString() {
+		return "DetallesCliente [id=" + id + ", web=" + web + ", telefono=" + telefono + ", comentarios=" + comentarios
+				+ "]";
+	}
+
 }
