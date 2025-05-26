@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- Configuración de conexión JDBC -->
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3307/curso_hibernate?useSSL=false</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password">password</property>
+
+        <!-- Dialecto para MySQL 8 -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
+
+        <!-- Mostrar SQL por consola -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- Contexto de sesión -->
+        <property name="hibernate.current_session_context_class">thread</property>
+
+        <!-- Generación automática del esquema (opcional) -->
+        <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
+
+        <!-- Mapear clases anotadas (añade una línea por cada entidad) -->
+        <!-- <mapping class="tu.paquete.TuEntidad"/> -->
+
+    </session-factory>
+</hibernate-configuration>
