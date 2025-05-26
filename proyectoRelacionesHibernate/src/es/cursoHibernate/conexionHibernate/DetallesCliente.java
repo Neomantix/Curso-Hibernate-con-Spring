@@ -41,7 +41,7 @@ public class DetallesCliente {
 	/*
 	 * Constructor con todos los parámetros excepto la Id, ya que al ser autoincremental, no necesitamos interactuar con ella en el constructor
 	 */
-	public DetallesCliente(String nombre, String apellidos, String direccion) {
+	public DetallesCliente(String web, String telefono, String comentarios) {
 		this.web = web;
 		this.telefono = telefono;
 		this.comentarios = comentarios;

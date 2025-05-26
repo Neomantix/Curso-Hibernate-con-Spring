@@ -27,8 +27,8 @@ public class Cliente {
     @Column(name = "nombre")
     private String nombre;
 
-    @Column(name = "apellidos")
-    private String apellidos;
+    @Column(name = "apellido")
+    private String apellido;
 
     @Column(name = "direccion")
     private String direccion;
@@ -53,9 +53,9 @@ public class Cliente {
 	/*
 	 * Constructor con todos los parámetros excepto la Id, ya que al ser autoincremental, no necesitamos interactuar con ella en el constructor
 	 */
-	public Cliente(String nombre, String apellidos, String direccion) {
+	public Cliente(String nombre, String apellido, String direccion) {
 		this.nombre = nombre;
-		this.apellidos = apellidos;
+		this.apellido = apellido;
 		this.direccion = direccion;
 	}
 
@@ -78,12 +78,12 @@ public class Cliente {
 		this.nombre = nombre;
 	}
 
-	public String getApellidos() {
-		return apellidos;
+	public String getApellido() {
+		return apellido;
 	}
 
-	public void setApellidos(String apellidos) {
-		this.apellidos = apellidos;
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
 	}
 
 	public String getDireccion() {
@@ -94,12 +94,20 @@ public class Cliente {
 		this.direccion = direccion;
 	}
 
+	public DetallesCliente getDetallesCliente() {
+		return detallesCliente;
+	}
+
+	public void setDetallesCliente(DetallesCliente detallesCliente) {
+		this.detallesCliente = detallesCliente;
+	}
+
 	/*
 	 * Sobreescritura del método toString
 	 */
 	@Override
 	public String toString() {
-		return "Cliente [id=" + id + ", nombre=" + nombre + ", apellidos=" + apellidos + ", direccion=" + direccion
+		return "Cliente [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", direccion=" + direccion
 				+ "]";
 	}
 	
