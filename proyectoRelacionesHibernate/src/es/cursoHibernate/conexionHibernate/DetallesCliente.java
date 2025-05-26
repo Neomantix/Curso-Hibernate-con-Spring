@@ -29,6 +29,10 @@ public class DetallesCliente {
 	@Column(name="comentarios")
 	private String comentarios;
 	
+	// Para que las clases sean bidireccionales, debemos mapear un objeto de clase Cliente con esta anotación
+	@OneToOne(mappedBy = "detallesCliente", cascade = CascadeType.ALL)
+	private Cliente cliente;
+	
 	
 	
 	/*
@@ -80,6 +84,14 @@ public class DetallesCliente {
 
 	public void setComentarios(String comentarios) {
 		this.comentarios = comentarios;
+	}
+	
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 
 	@Override

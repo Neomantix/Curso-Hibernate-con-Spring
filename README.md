@@ -20,6 +20,8 @@
 [Video 55: Relaciones entre tablas III](https://www.youtube.com/watch?v=OKfXRhKNLDk)
 
 [Video 56: Relaciones entre tablas IV](https://www.youtube.com/watch?v=xXkxA2k10cY)
+
+[Video 57: Relaciones entre tablas V](https://www.youtube.com/watch?v=B6MCFhBekWI)
 	
 # Fuentes de información:
 [Página oficial de Hibernate](https://hibernate.org/)
