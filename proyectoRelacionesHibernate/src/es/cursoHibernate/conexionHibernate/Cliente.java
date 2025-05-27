@@ -60,9 +60,14 @@ public class Cliente {
 	 *	| Cliente   | @OneToMany     |     No      | "cliente" |        No           |        No           |
 	 *	| Pedido    | @ManyToOne     |    Sí       |     -     | Sí (cliente_id)     | Sí (@JoinColumn)    |
 	 *	+-----------+----------------+-------------+-----------+---------------------+---------------------+
-	 *
      */
-    @OneToMany(mappedBy = "cliente", cascade =  {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    
+    /*
+     * 	fetch = FetchType.LAZY (por defecto en OneToMany): Carga diferida, solo se consulta la base de datos cuando accedes a la colección
+	 *	fetch = FetchType.EAGER: Carga inmediata, la colección se carga siempre junto con la entidad principal.
+	 * 	Usar LAZY es recomendable para colecciones grandes o cuando no siempre necesitas los datos relacionados, para mejorar el rendimiento.
+     */
+    @OneToMany(fetch = FetchType.EAGER, mappedBy =  "cliente", cascade =  {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     private List<Pedido> pedidos;
 
 	
