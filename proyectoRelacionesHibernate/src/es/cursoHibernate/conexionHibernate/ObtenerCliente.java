@@ -25,6 +25,9 @@ public class ObtenerCliente {
 	 	 * 							El SessionFactory es un objeto pesado y seguro para múltiples hilos, encargado de crear sesiones (Session) para interactuar con la base de datos
 		 *
 		 * Normalmente, se crea una sola vez durante la vida de la aplicación y se reutiliza.
+		 * 
+		 * Como una instancia de SessionFactory es bastante pesada, sería conveniente crear una clase aparte con una variable final y estática que almacene un objeto de esta clase. 
+		 * De esta forma se puede compartir la misma instancia en cualquier punto de la aplicació siguiendo el patrón de diseño Singleton
 		 */
 		SessionFactory miFactory = new Configuration()
 										.configure("hibernate.cfg.xml")
@@ -51,6 +54,10 @@ public class ObtenerCliente {
 			
 			System.out.println(detallesCliente.getCliente());
 			
+			/* Podemos eliminar en cascada partiendo del objeto detallesCliente y automáticamente se propagará hacia la tabla cliente por ser una relación bidireccional */
+			System.out.println("Ahora vamos a eliminar en cascada");
+			
+			miSesion.delete(detallesCliente);
 
 			// Confirmamos la transacción con .commit()
 			miSesion.getTransaction().commit();

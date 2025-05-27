@@ -26,48 +26,50 @@ public class BorraCliente {
 		 *
 		 * Normalmente, se crea una sola vez durante la vida de la aplicación y se reutiliza.
 		 */
-		SessionFactory miFactory = new Configuration()
-										.configure("hibernate.cfg.xml")
-										.addAnnotatedClass(Cliente.class)
-										.addAnnotatedClass(DetallesCliente.class)
-										.buildSessionFactory();
+		
+		
 
-		/*
-		 * A partir del objeto SessionFactory podemos crear sesiones con el método .openSession()
-		 * Como se debe cerrar la sesión una vez se termina de usar, usaremos un try-catch with resources para facilitar el trabajo en lugar de hacer un .close() explicito en el finally
-		 */
-		try (Session miSesion = miFactory.openSession()){
-
-			// Comenzamos la transacción
-			miSesion.beginTransaction();
-			final int ID_A_ELIMINAR = 4; 
-			
-			// Instanciamos un objeto de clase Cliente recuperando los datos del cliente que queremos borrar de la base de datos por medio de su id
-			Cliente cliente1 = miSesion.get(Cliente.class, ID_A_ELIMINAR);
-
-			// Si el cliente con esa id no existe, en cliente1 se almacenará null
-			if (cliente1 != null) {
+			/*
+			 * A partir del objeto SessionFactory podemos crear sesiones con el método .openSession()
+			 * Como se debe cerrar la sesión una vez se termina de usar, usaremos un try-catch with resources para facilitar el trabajo en lugar de hacer un .close() explicito en el finally
+			 */
+			try (SessionFactory miFactory = new Configuration()
+					.configure("hibernate.cfg.xml")
+					.addAnnotatedClass(Cliente.class)
+					.addAnnotatedClass(DetallesCliente.class)
+					.buildSessionFactory();
+				 Session miSesion = miFactory.openSession()){
+	
+				// Comenzamos la transacción
+				miSesion.beginTransaction();
+				final int ID_A_ELIMINAR = 4; 
 				
-				// Eliminamos el registro en la base de datos. Se borrará la información en cascada de las dos tablas relacionadas
-				miSesion.delete(cliente1);
+				// Instanciamos un objeto de clase Cliente recuperando los datos del cliente que queremos borrar de la base de datos por medio de su id
+				Cliente cliente1 = miSesion.get(Cliente.class, ID_A_ELIMINAR);
+	
+				// Si el cliente con esa id no existe, en cliente1 se almacenará null
+				if (cliente1 != null) {
+					
+					// Eliminamos el registro en la base de datos. Se borrará la información en cascada de las dos tablas relacionadas
+					miSesion.delete(cliente1);
+					
+					System.out.println("Registro eliminado correctamente: " + cliente1);
+					
+				} else {
+					
+					System.out.println("No se ha podido encontrar al cliente con id: " + ID_A_ELIMINAR);
+					
+				}
 				
-				System.out.println("Registro eliminado correctamente: " + cliente1);
+				// Confirmamos la transacción con .commit()
+				miSesion.getTransaction().commit();
+	
 				
-			} else {
+			} catch (Exception e) {
 				
-				System.out.println("No se ha podido encontrar al cliente con id: " + ID_A_ELIMINAR);
+				e.printStackTrace();
 				
 			}
-			
-			// Confirmamos la transacción con .commit()
-			miSesion.getTransaction().commit();
-
-			
-		} catch (Exception e) {
-			
-			e.printStackTrace();
-			
-		}
 		
 	}
 	
