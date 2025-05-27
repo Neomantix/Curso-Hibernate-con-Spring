@@ -30,6 +30,8 @@
 [Video 60: Relaciones entre tablas VIII(https://www.youtube.com/watch?v=7UItZlS9Vkk&list=PLU8oAlHdN5Blq85GIxtKjIXdfHPksV_Hm&index=60)
 
 [Video 61: Relaciones entre tablas IX](https://www.youtube.com/watch?v=XPbBIpK8a9o&list=PLU8oAlHdN5Blq85GIxtKjIXdfHPksV_Hm&index=61)
+
+[Video 62: Relaciones entre tablas X](https://www.youtube.com/watch?v=zu8cYc5mLqI&list=PLU8oAlHdN5Blq85GIxtKjIXdfHPksV_Hm&index=62)
 	
 # Fuentes de información:
 [Página oficial de Hibernate](https://hibernate.org/)
