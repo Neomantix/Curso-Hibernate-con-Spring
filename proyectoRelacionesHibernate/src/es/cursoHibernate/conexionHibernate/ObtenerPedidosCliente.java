@@ -7,7 +7,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class CrearPedidosCliente {
+public class ObtenerPedidosCliente {
 
 	public static void main(String[] args) {
 
@@ -48,22 +48,10 @@ public class CrearPedidosCliente {
 			/* Obtenemos el cliente de la tabla cliente de la base de datos con id 6 */
 			Cliente cliente = miSesion.get(Cliente.class, 8);
 			
-			/* Crear Pedidos para cliente */
-			Pedido pedido1 = new Pedido(new GregorianCalendar(2025,2,14));
-			Pedido pedido2 = new Pedido(new GregorianCalendar(2025,5,3));
-			Pedido pedido3 = new Pedido(new GregorianCalendar(2025,1,22));
+			System.out.println("Cliente: " + cliente);
 			
-			/* Agregar pedidos creados al cliente creado */
-			cliente.agregarPedidos(pedido1);
-			cliente.agregarPedidos(pedido2);
-			cliente.agregarPedidos(pedido3);
-			
-			/* Guardar los pedidos en la base de datos en la tabla pedidos*/
-			miSesion.persist(pedido1);
-			miSesion.persist(pedido2);
-			miSesion.persist(pedido3);
-			
-			System.out.println("Registros insertados correctamente en BDD");
+			/* Obtenemos todos los pedidos de un cliente en concreto */
+			System.out.println("Pedidos: " + cliente.getPedidos());
 			
 			// Confirmamos la transacción con .commit()
 			miSesion.getTransaction().commit();

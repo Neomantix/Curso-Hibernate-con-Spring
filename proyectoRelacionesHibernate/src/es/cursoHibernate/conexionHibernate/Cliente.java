@@ -134,6 +134,14 @@ public class Cliente {
 	public void setDetallesCliente(DetallesCliente detallesCliente) {
 		this.detallesCliente = detallesCliente;
 	}
+	
+	public List<Pedido> getPedidos() {
+		return pedidos;
+	}
+
+	public void setPedidos(List<Pedido> pedidos) {
+		this.pedidos = pedidos;
+	}
 
 	/*
 	 * Sobreescritura del método toString
@@ -143,7 +151,5 @@ public class Cliente {
 		return "Cliente [id=" + id + ", nombre=" + nombre + ", apellido=" + apellido + ", direccion=" + direccion
 				+ "]";
 	}
-	
-	
-	
+
 }

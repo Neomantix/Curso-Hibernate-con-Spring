@@ -30,6 +30,7 @@ public class InsertaCliente {
 										.configure("hibernate.cfg.xml")
 										.addAnnotatedClass(Cliente.class)
 										.addAnnotatedClass(DetallesCliente.class)
+										.addAnnotatedClass(Pedido.class)
 										.buildSessionFactory();
 
 		/*
@@ -42,10 +43,10 @@ public class InsertaCliente {
 			miSesion.beginTransaction();
 
 			// Instanciamos un objeto de clase Cliente que será insertado en la base de datos
-			Cliente cliente1 = new Cliente("Sandra", "Delgado", "Goya");
+			Cliente cliente1 = new Cliente("Ana", "Marín", "Gran Vía");
 			
 			// Instanciamos un objeto de la clase DetallesClientes
-			DetallesCliente detallesCliente1 = new DetallesCliente("www.sandra.com", "693684264", "Primer cliente");
+			DetallesCliente detallesCliente1 = new DetallesCliente("www.anamarin.com", "694126587", "Otro cliente");
 			
 			// Asociar los objetos
 			cliente1.setDetallesCliente(detallesCliente1);

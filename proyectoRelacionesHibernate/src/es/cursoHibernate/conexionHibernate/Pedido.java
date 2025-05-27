@@ -1,6 +1,6 @@
 package es.cursoHibernate.conexionHibernate;
 
-import java.util.Date;
+import java.util.GregorianCalendar;
 
 import javax.persistence.*;
 
@@ -14,7 +14,7 @@ public class Pedido {
 	private int id;
 	
 	@Column(name="fecha")
-	private Date fecha;
+	private GregorianCalendar fecha;
 	
 	@Column(name = "forma_pago")
 	private String formaPago;
@@ -30,7 +30,7 @@ public class Pedido {
 	
 	public Pedido () {}
 
-	public Pedido (Date fecha) {
+	public Pedido (GregorianCalendar fecha) {
 		this.fecha = fecha;
 	}
 
@@ -42,11 +42,11 @@ public class Pedido {
 		this.id = id;
 	}
 
-	public Date getFecha() {
+	public GregorianCalendar getFecha() {
 		return fecha;
 	}
 
-	public void setFecha(Date fecha) {
+	public void setFecha(GregorianCalendar fecha) {
 		this.fecha = fecha;
 	}
 
