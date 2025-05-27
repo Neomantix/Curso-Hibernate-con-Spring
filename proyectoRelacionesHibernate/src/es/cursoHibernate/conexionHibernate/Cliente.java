@@ -1,5 +1,7 @@
 package es.cursoHibernate.conexionHibernate;
 
+import java.util.*;
+
 import javax.persistence.*;
 
 /* Anotaciones:
@@ -41,6 +43,27 @@ public class Cliente {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id")
     private DetallesCliente detallesCliente;
+    
+    /*
+     * ¿Por qué se usa así?
+     * 
+	 *	Esto se hace para evitar que Hibernate/JPA intente crear dos claves foráneas para la misma relación.
+	 *
+     *	El lado con mappedBy es el lado "no propietario" de la relación.
+     *	El lado propietario (en este caso, Pedido) es el que tiene la anotación @JoinColumn y la clave foránea en la base de datos.
+     *
+	 *	Ejemplo gráfico:
+	 *
+	 *	+-----------+----------------+-------------+-----------+---------------------+---------------------+
+	 *	|  Clase    |   Relación     | Propietario | mappedBy  | Clave foránea en BD |    JoinColumn       |
+	 *	+-----------+----------------+-------------+-----------+---------------------+---------------------+
+	 *	| Cliente   | @OneToMany     |     No      | "cliente" |        No           |        No           |
+	 *	| Pedido    | @ManyToOne     |    Sí       |     -     | Sí (cliente_id)     | Sí (@JoinColumn)    |
+	 *	+-----------+----------------+-------------+-----------+---------------------+---------------------+
+	 *
+     */
+    @OneToMany(mappedBy = "cliente", cascade =  {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+    private List<Pedido> pedidos;
 
 	
 	/*
@@ -57,6 +80,16 @@ public class Cliente {
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.direccion = direccion;
+	}
+	
+	public void agregarPedidos(Pedido pedido) {
+		if(pedidos==null) {
+			pedidos = new ArrayList<>();
+		} 
+		
+		pedidos.add(pedido);
+		
+		pedido.setCliente(this);
 	}
 
 	/*

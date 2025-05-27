@@ -28,6 +28,8 @@
 [Video 59: Relaciones entre tablas VII](https://www.youtube.com/watch?v=JABaETi74yk&list=PLU8oAlHdN5Blq85GIxtKjIXdfHPksV_Hm&index=59)
 
 [Video 60: Relaciones entre tablas VIII(https://www.youtube.com/watch?v=7UItZlS9Vkk&list=PLU8oAlHdN5Blq85GIxtKjIXdfHPksV_Hm&index=60)
+
+[Video 61: Relaciones entre tablas IX](https://www.youtube.com/watch?v=XPbBIpK8a9o&list=PLU8oAlHdN5Blq85GIxtKjIXdfHPksV_Hm&index=61)
 	
 # Fuentes de información:
 [Página oficial de Hibernate](https://hibernate.org/)

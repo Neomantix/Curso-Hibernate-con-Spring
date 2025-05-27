@@ -19,16 +19,19 @@ public class Pedido {
 	@Column(name = "forma_pago")
 	private String formaPago;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name="id")
+	/*
+	 * Como se pretende que la relación sea de muchos a uno (varios pedidos pueden tener un solo cliente) utilizamos la annotation @ManyToOne
+	 * Usaremos todos los tipos de cascade excepto el REMOVE para evitar el borrado de un cliente cuando se borre un pedido
+	 * Con @JoinColumn indicamos a Hibernate que esta columna será la clave foránea que relaciona ambas tablas
+	 */
+	@ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.DETACH, CascadeType.REFRESH})
+	@JoinColumn(name="cliente_id")
 	private Cliente cliente;
 	
 	public Pedido () {}
 
-	public Pedido (Date fecha, String formaPago, Cliente cliente ) {
+	public Pedido (Date fecha) {
 		this.fecha = fecha;
-		this.formaPago = formaPago;
-		this.cliente = cliente;
 	}
 
 	public int getId() {
