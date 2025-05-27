@@ -36,6 +36,8 @@
 [Video 63: Relaciones entre tablas XI](https://www.youtube.com/watch?v=z0OFQSzudJc&list=PLU8oAlHdN5Blq85GIxtKjIXdfHPksV_Hm&index=63)
 
 [Video 64: FetchType Eager vs FetchType Lazy](https://www.youtube.com/watch?v=Bi3uIoW2nG4&list=PLU8oAlHdN5Blq85GIxtKjIXdfHPksV_Hm&index=64)
+
+[Video 65. Lazy y cierre de sesión](https://www.youtube.com/watch?v=RzA-vgHuoW0&list=PLU8oAlHdN5Blq85GIxtKjIXdfHPksV_Hm&index=65)
 	
 # Fuentes de información:
 [Página oficial de Hibernate](https://hibernate.org/)
