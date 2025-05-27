@@ -24,6 +24,10 @@
 [Video 57: Relaciones entre tablas V](https://www.youtube.com/watch?v=B6MCFhBekWI)
 
 [Video 58: Relaciones entre tablas VI](https://www.youtube.com/watch?v=D_BwHTK64TQ&list=PLU8oAlHdN5Blq85GIxtKjIXdfHPksV_Hm&index=59)
+
+[Video 59: Relaciones entre tablas VII](https://www.youtube.com/watch?v=JABaETi74yk&list=PLU8oAlHdN5Blq85GIxtKjIXdfHPksV_Hm&index=59)
+
+[Video 60: Relaciones entre tablas VIII(https://www.youtube.com/watch?v=7UItZlS9Vkk&list=PLU8oAlHdN5Blq85GIxtKjIXdfHPksV_Hm&index=60)
 	
 # Fuentes de información:
 [Página oficial de Hibernate](https://hibernate.org/)
